@@ -8,7 +8,7 @@ namespace Lab4.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult LoadBTree()
         {
             return View();
         }
