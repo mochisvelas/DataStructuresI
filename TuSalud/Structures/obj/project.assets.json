@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brenner\\source\\repos\\TuSalud\\Structures\\Structures.csproj",
+      "projectUniqueName": "C:\\Users\\Brenner\\source\\DataStructuresI\\TuSalud\\Structures\\Structures.csproj",
       "projectName": "Structures",
-      "projectPath": "C:\\Users\\Brenner\\source\\repos\\TuSalud\\Structures\\Structures.csproj",
+      "projectPath": "C:\\Users\\Brenner\\source\\DataStructuresI\\TuSalud\\Structures\\Structures.csproj",
       "packagesPath": "C:\\Users\\Brenner\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Brenner\\source\\repos\\TuSalud\\Structures\\obj\\",
+      "outputPath": "C:\\Users\\Brenner\\source\\DataStructuresI\\TuSalud\\Structures\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
