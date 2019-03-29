@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "DisplayBTree";
+    Layout = "~/Views/Partials/Layout.cshtml";
+}
+
+<center><h5 style="padding: 10px">Mostrar árbol B</h5></center>
+<div>
+    <form class="form" id="btreeform" action=@Url.Action("DisplayBTree") method="post">
+        <input type="text" class="textbox" name="name" placeholder="Nombre del fármaco" required />
+        <input type="submit" class="button-primary btn" name="Enter" value="Mostrar" />
+    </form>
+</div>

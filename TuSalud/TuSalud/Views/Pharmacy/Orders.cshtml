@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Partials/Layout.cshtml";
+}
+
+<center><h5 style="padding: 10px">Hacer pedidos</h5></center>
+<div>
+    <form class="form" id="ordersform" action=@Url.Action("RegisterEmployee") method="post">
+        <input type="text" class="textbox" name="name" placeholder="Nombre" required />
+        <input type="text" class="textbox" name="address" placeholder="Dirección" required />
+        <input type="number" class="textbox" name="nit" min="0" max="2147483647" placeholder="NIT" required />
+        <input type="number" class="textbox" name="meds" min="0" max="2147483647" placeholder="Fármacos" required />
+        <input type="submit" class="button-primary btn" name="Enter" value="Ordenar" />
+    </form>
+</div>

@@ -1,0 +1,9 @@
+C:\Users\Brenner\source\repos\TuSalud\Structures\bin\Debug\netstandard2.0\Structures.deps.json
+C:\Users\Brenner\source\repos\TuSalud\Structures\bin\Debug\netstandard2.0\Structures.dll
+C:\Users\Brenner\source\repos\TuSalud\Structures\bin\Debug\netstandard2.0\Structures.pdb
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.csproj.CoreCompileInputs.cache
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.AssemblyInfoInputs.cache
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.AssemblyInfo.cs
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.dll
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.pdb
+C:\Users\Brenner\source\repos\TuSalud\Structures\obj\Debug\netstandard2.0\Structures.csprojAssemblyReference.cache

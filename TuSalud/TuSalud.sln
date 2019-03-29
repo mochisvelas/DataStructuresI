@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuSalud", "TuSalud\TuSalud.csproj", "{274D4D80-8CD7-4974-A199-561C81A2044A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structures", "Structures\Structures.csproj", "{763EF172-3FAF-4B0F-AB09-A2F7C3420E54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{274D4D80-8CD7-4974-A199-561C81A2044A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274D4D80-8CD7-4974-A199-561C81A2044A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274D4D80-8CD7-4974-A199-561C81A2044A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274D4D80-8CD7-4974-A199-561C81A2044A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763EF172-3FAF-4B0F-AB09-A2F7C3420E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763EF172-3FAF-4B0F-AB09-A2F7C3420E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763EF172-3FAF-4B0F-AB09-A2F7C3420E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763EF172-3FAF-4B0F-AB09-A2F7C3420E54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03AB19C7-267A-4378-B9E3-C2327250B2A2}
+	EndGlobalSection
+EndGlobal
