@@ -31,7 +31,7 @@ namespace Structures
         {
             get
             {
-                return this.Items.Count == (2 * this.degree) - 1;
+                return this.Items.Count == this.degree - 1;
             }
         }
 
@@ -39,8 +39,8 @@ namespace Structures
         {
             get
             {
-                return this.Items.Count == this.degree - 1;
-            }
+                return this.Items.Count == (this.degree / 2) - 1;
+            };
         }
     }
 }
