@@ -16,6 +16,7 @@ namespace TuSalud.Controllers
     {
 
         private static BTree<string, Drugs> Btree;
+        private static BTree<string, Orders> OrdersTree;
 
         [HttpGet]
         public ActionResult LoadBTree()
@@ -28,6 +29,7 @@ namespace TuSalud.Controllers
         {
 
             Btree = new BTree<string, Drugs>(order);
+            OrdersTree = new BTree<string, Orders>(order);
             ReadFile(csvFile);
 
             return View();
@@ -39,6 +41,14 @@ namespace TuSalud.Controllers
         public ActionResult Orders()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Orders(string name, string address, int nit, )
+        {
+
+            return View();
+
         }
 
         [HttpGet]
@@ -63,25 +73,24 @@ namespace TuSalud.Controllers
         private bool ReadFile(HttpPostedFileBase csvFile)
         {
             bool succeed = false;
+
             string path = string.Empty;
-            // Check if the fileUpload is not empty
+            
             if (csvFile != null)
-            {
-                // Check if the file is a csv
+            {                
                 if (".csv".Equals(Path.GetExtension(csvFile.FileName), StringComparison.OrdinalIgnoreCase))
-                {
-                    // Store the file
+                {                    
                     string fileName = Path.GetFileName(csvFile.FileName);
                     path = Path.Combine(Server.MapPath("~/App_Data/Files"), fileName);
                     csvFile.SaveAs(path);
-                    // Read the file and split each element
+                    
                     string file = System.IO.File.ReadAllText(path);
                     foreach (string line in file.Split('\n'))
                     {
                         if (!string.IsNullOrEmpty(line))
                         {
                             string[] items = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-                            // Create a new object and insert it into the tree
+                            
                             try
                             {
                                 Drugs Drug = new Drugs()
