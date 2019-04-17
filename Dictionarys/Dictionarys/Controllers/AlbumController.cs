@@ -10,6 +10,12 @@ namespace Dictionarys.Controllers
         [HttpGet]
         public ActionResult MissingStamps() {
             return View();
-        }        
+        }
+
+        [HttpGet]
+        public ActionResult LoadData()
+        {
+            return View();
+        }
     }
 }
