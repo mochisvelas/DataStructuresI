@@ -126,6 +126,7 @@
     <Content Include="Views\Partial\Layout.cshtml" />
     <Content Include="Views\Album\MissingStamps.cshtml" />
     <Content Include="Views\Album\LoadData.cshtml" />
+    <Content Include="Views\Album\ModInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

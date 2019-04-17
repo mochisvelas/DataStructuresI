@@ -17,5 +17,11 @@ namespace Dictionarys.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ModInfo()
+        {
+            return View();
+        }
     }
 }
