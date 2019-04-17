@@ -6,11 +6,10 @@ using System.Web.Mvc;
 
 namespace Dictionarys.Controllers
 {
-    public class AlbumController : Controller
-    {
+    public class AlbumController : Controller {
         [HttpGet]
         public ActionResult MissingStamps() {
             return View();
-        }
+        }        
     }
 }
