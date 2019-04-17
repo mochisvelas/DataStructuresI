@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Text.RegularExpressions;
+using Dictionarys.Models;
 
 namespace Dictionarys.Controllers {
     public class AlbumController : Controller {
 
-        Dictionary<string, StampsList>
-        
+        Dictionary<string, StampsList> firstDictionary;
+        Dictionary<NumberTeamKey, bool> secondDictionary;
+        StampsList stampList = new StampsList();
 
         [HttpGet]
         public ActionResult MissingStamps() {
@@ -52,17 +54,29 @@ namespace Dictionarys.Controllers {
 
                             try
                             {
-                                DrugModel Drug = new DrugModel()
+                                StampModel stampModel = new StampModel()
                                 {
-                                    Uid = int.Parse(items[0]),
-                                    Name = items[1],
-                                    Description = items[2],
-                                    Producer = items[3],
-                                    Price = float.Parse(items[4].Trim('$')),
-                                    Stock = int.Parse(items[5])
+                                    stampNumber = int.Parse(items[0]),
+                                    stampTeam = items[1],
+                                    stampQuantity = int.Parse(items[2])
+                                    //Producer = items[3],
+                                    //Price = float.Parse(items[4].Trim('$')),
+                                    //Stock = int.Parse(items[5])
                                 };
-                                MyTree.Insert(Drug.Name, Drug);
-                                succeed = true;
+
+                                if (stampModel.stampQuantity == 0)
+                                {
+                                    stampList.InsertList(stampModel, 0);
+                                }
+                                else if (stampModel.stampQuantity == 1)
+                                {
+
+                                }
+                                else
+                                {
+                                    
+                                }                            
+                                
                             }
                             catch (Exception)
                             {
