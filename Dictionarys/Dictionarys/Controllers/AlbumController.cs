@@ -19,6 +19,12 @@ namespace Dictionarys.Controllers {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult MissingStamps(string team) {
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult LoadData() {
             return View();
@@ -87,7 +93,9 @@ namespace Dictionarys.Controllers {
                     }
                 }
             }
-            
+          
         }
+
+
     }
 }

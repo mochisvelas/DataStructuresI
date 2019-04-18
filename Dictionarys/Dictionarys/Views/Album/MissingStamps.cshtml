@@ -4,5 +4,11 @@
     Layout = "~/Views/Partial/Layout.cshtml";
 }
 
-<h2>MissingStamps</h2>
+<center><h5 style="padding: 10px">Estampas faltantes :)</h5></center>
+<div>
+    <form class="form" id="btreeform" action=@Url.Action("MissingStamps") method="post" enctype="multipart/form-data">
+        <input type="text" class="textbox" name="team" placeholder="Equipo" required />        
+        <input type="submit" class="button-primary btn" name="Enter" value="Cargar" />
+    </form>
+</div>
 
