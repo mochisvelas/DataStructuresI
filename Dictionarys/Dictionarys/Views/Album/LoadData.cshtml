@@ -4,18 +4,14 @@
     Layout = "~/Views/Partial/Layout.cshtml";
 }
 
-<div>
-    <center><h5 style="padding: 10px">Cargar el formato del álbum :)</h5></center>
+   
     <form class="form" id="btreeform" action=@Url.Action("LoadData") method="post" enctype="multipart/form-data">
-        <input type="file" class="textbox" name="csvFile1" id="csvFile" accept=".csv" required />
-        <input type="submit" class="button-primary btn" name="Enter" value="Cargar" />
+        <div>
+            <input type="file" class="textbox" name="csvFile" id="csvFile" accept=".csv" required />
+            <input type="checkbox" name="csvType" value="Format" /> Cargar el formato del álbum
+            <input type="checkbox" name="csvType" value="State" /> Cargar el estado de nuestro álbum<br>
+            <input type="submit" class="button-primary btn" name="Enter" value="Cargar el formato del álbum" />
+        </div>      
+     
     </form>
-</div>
-<div>
-    <center><h5 style="padding: 10px">Cargar el estado de nuestro álbum :)</h5></center>
-    <form class="form" id="btreeform" action=@Url.Action("LoadData") method="post" enctype="multipart/form-data">
-        <input type="file" class="textbox" name="csvFile2" id="csvFile" accept=".csv" required />
-        <input type="submit" class="button-primary btn" name="Enter" value="Cargar" />
-    </form>
-</div>
 

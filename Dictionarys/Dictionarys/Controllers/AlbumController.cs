@@ -10,8 +10,8 @@ using Dictionarys.Models;
 namespace Dictionarys.Controllers {
     public class AlbumController : Controller {
 
-        Dictionary<string, StampsList> firstDictionary;
-        Dictionary<NumberTeamKey, bool> secondDictionary;
+        Dictionary<string, List<StampModel>> firstDictionary = new Dictionary<string, List<StampModel>>();
+        Dictionary<NumberTeamKey, bool> secondDictionary = new Dictionary<NumberTeamKey, bool>();
         StampsList stampList = new StampsList();
 
         [HttpGet]
@@ -25,8 +25,8 @@ namespace Dictionarys.Controllers {
         }
 
         [HttpPost]
-        public ActionResult LoadData(HttpPostedFileBase csvFile) {
-            ReadFile(csvFile);
+        public ActionResult LoadData(HttpPostedFileBase csvFile, string csvType) {
+            ReadFile(csvFile,csvType);
             return View();
 
         }
@@ -36,7 +36,7 @@ namespace Dictionarys.Controllers {
             return View();
         }
 
-        private void ReadFile(HttpPostedFileBase csvFile) {
+        private void ReadFile(HttpPostedFileBase csvFile, string csvType) {
             string path = string.Empty;
 
             if (csvFile != null){
@@ -46,48 +46,45 @@ namespace Dictionarys.Controllers {
                     csvFile.SaveAs(path);
 
                     string file = System.IO.File.ReadAllText(path);
-                    foreach (string line in file.Split('\n'))
-                    {
-                        if (!string.IsNullOrEmpty(line))
-                        {
+                    foreach (string line in file.Split('\n')) {
+                        if (!string.IsNullOrEmpty(line)) {
+
                             string[] items = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
 
-                            try
-                            {
-                                StampModel stampModel = new StampModel()
-                                {
-                                    stampNumber = int.Parse(items[0]),
-                                    stampTeam = items[1],
-                                    stampQuantity = int.Parse(items[2])
-                                    //Producer = items[3],
-                                    //Price = float.Parse(items[4].Trim('$')),
-                                    //Stock = int.Parse(items[5])
-                                };
+                            if (csvType.Equals("Format")) {
+                                try {
+                                    StampModel stampModel = new StampModel() {
+                                        stamp = new NumberTeamKey() { stampNumber = int.Parse(items[0]), stampTeam = items[1] },
+                                        stampQuantity = int.Parse(items[2])
+                                    };
 
-                                if (stampModel.stampQuantity == 0)
-                                {
-                                    stampList.InsertList(stampModel, 0);
+                                    if (firstDictionary.ContainsKey(stampModel.stamp.stampTeam))
+                                    {
+                                        List<StampModel> stamps = firstDictionary[stampModel.stamp.stampTeam];
+                                        stamps.Add(stampModel);
+                                        firstDictionary[stampModel.stamp.stampTeam] = stamps;
+                                    }
+                                    else
+                                    {
+                                        firstDictionary.Add(stampModel.stamp.stampTeam, new List<StampModel>() { stampModel });
+                                    }
+
                                 }
-                                else if (stampModel.stampQuantity == 1)
+                                catch (Exception)
                                 {
 
                                 }
-                                else
-                                {
-                                    
-                                }                            
-                                
                             }
-                            catch (Exception)
+                            else
                             {
-                                MyTree.WipeOut();
-                                return false;
+
                             }
+                            
                         }
                     }
                 }
             }
-            return succeed;
+            
         }
     }
 }
