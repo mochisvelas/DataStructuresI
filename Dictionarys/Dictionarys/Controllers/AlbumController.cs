@@ -10,7 +10,7 @@ using Dictionarys.Models;
 namespace Dictionarys.Controllers {
     public class AlbumController : Controller {
 
-        Dictionary<string, List<StampModel>> firstDictionary = new Dictionary<string, List<StampModel>>();
+        Dictionary<string, List<NumberTeamKey>> firstDictionary = new Dictionary<string, List<NumberTeamKey>>();
         Dictionary<NumberTeamKey, bool> secondDictionary = new Dictionary<NumberTeamKey, bool>();
         StampsList stampList = new StampsList();
 
@@ -53,51 +53,32 @@ namespace Dictionarys.Controllers {
 
                             if (csvType.Equals("Format")) {
                                 try {
-                                    StampModel stampModel = new StampModel() {
-                                        stamp = new NumberTeamKey() { stampNumber = int.Parse(items[0]), stampTeam = items[1] },
-                                        stampQuantity = int.Parse(items[2])
+                                    NumberTeamKey stampModel = new NumberTeamKey() {
+                                        stampNumber = int.Parse(items[0]),
+                                        stampTeam = items[1],                                        
+                                        isSpecial = items[2].Equals("TRUE")
                                     };
 
-                                    if (firstDictionary.ContainsKey(stampModel.stamp.stampTeam))
+                                    if (firstDictionary.ContainsKey(stampModel.stampTeam))
                                     {
-                                        List<StampModel> stamps = firstDictionary[stampModel.stamp.stampTeam];
+                                        List<NumberTeamKey> stamps = firstDictionary[stampModel.stampTeam];
                                         stamps.Add(stampModel);
-                                        firstDictionary[stampModel.stamp.stampTeam] = stamps;
+                                        firstDictionary[stampModel.stampTeam] = stamps;
+                                    } else {
+                                        firstDictionary.Add(stampModel.stampTeam, new List<NumberTeamKey>() { stampModel });
                                     }
-                                    else
-                                    {
-                                        firstDictionary.Add(stampModel.stamp.stampTeam, new List<StampModel>() { stampModel });
-                                    }
-
                                 }
-                                catch (Exception)
-                                {
+                                catch (Exception) {
 
                                 }
                             } else {
-                                try
-                                {
-                                    NumberTeamKey numberKey = new NumberTeamKey()
-                                    {
-                                        stampNumber = int.Parse(items[0]),
-                                        stampTeam= items[1],
-                                        sta
-                                    };
-
-                                    if (firstDictionary.ContainsKey(stampModel.stamp.stampTeam))
-                                    {
-                                        List<StampModel> stamps = firstDictionary[stampModel.stamp.stampTeam];
-                                        stamps.Add(stampModel);
-                                        firstDictionary[stampModel.stamp.stampTeam] = stamps;
-                                    }
-                                    else
-                                    {
-                                        firstDictionary.Add(stampModel.stamp.stampTeam, new List<StampModel>() { stampModel });
-                                    }
+                                try {
+                                    NumberTeamKey numberkey = new NumberTeamKey() { stampNumber = int.Parse(items[0]), stampTeam = items[1], isSpecial = items[2].Equals("TRUE") };
+                                    StampsList stamplist = new StampsList() { stampQuantity = int.Parse(items[3]), isAvailable = items[4].Equals("TRUE") };
+                                    secondDictionary.Add(numberkey, stampList.isAvailable.Equals("TRUE"));
 
                                 }
-                                catch (Exception)
-                                {
+                                catch (Exception) {
 
                                 }
                             }
