@@ -74,10 +74,32 @@ namespace Dictionarys.Controllers {
                                 {
 
                                 }
-                            }
-                            else
-                            {
+                            } else {
+                                try
+                                {
+                                    NumberTeamKey numberKey = new NumberTeamKey()
+                                    {
+                                        stampNumber = int.Parse(items[0]),
+                                        stampTeam= items[1],
+                                        sta
+                                    };
 
+                                    if (firstDictionary.ContainsKey(stampModel.stamp.stampTeam))
+                                    {
+                                        List<StampModel> stamps = firstDictionary[stampModel.stamp.stampTeam];
+                                        stamps.Add(stampModel);
+                                        firstDictionary[stampModel.stamp.stampTeam] = stamps;
+                                    }
+                                    else
+                                    {
+                                        firstDictionary.Add(stampModel.stamp.stampTeam, new List<StampModel>() { stampModel });
+                                    }
+
+                                }
+                                catch (Exception)
+                                {
+
+                                }
                             }
                             
                         }

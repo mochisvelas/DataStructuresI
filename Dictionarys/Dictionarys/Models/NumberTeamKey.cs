@@ -7,5 +7,6 @@ namespace Dictionarys.Models {
     public class NumberTeamKey {
         public string stampTeam { get; set; }
         public int stampNumber { get; set; }
+        public bool isSpecial { get; set; }
     }
 }
