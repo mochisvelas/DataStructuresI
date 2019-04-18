@@ -43,7 +43,7 @@ namespace Dictionarys.Controllers {
                 if (".csv".Equals(Path.GetExtension(csvFile.FileName), StringComparison.OrdinalIgnoreCase)){
                     string fileName = Path.GetFileName(csvFile.FileName);
                     path = Path.Combine(Server.MapPath("~/App_Data/Files"), fileName);
-                    csvFile.SaveAs(path);
+                    csvFile.SaveAs(path); 
 
                     string file = System.IO.File.ReadAllText(path);
                     foreach (string line in file.Split('\n')) {
@@ -56,7 +56,7 @@ namespace Dictionarys.Controllers {
                                     NumberTeamKey stampModel = new NumberTeamKey() {
                                         stampNumber = int.Parse(items[0]),
                                         stampTeam = items[1],                                        
-                                        isSpecial = items[2].Equals("TRUE")
+                                        isSpecial = items[2].Equals("TRUE\r")
                                     };
 
                                     if (firstDictionary.ContainsKey(stampModel.stampTeam))
@@ -75,7 +75,7 @@ namespace Dictionarys.Controllers {
                                 try {
                                     NumberTeamKey numberkey = new NumberTeamKey() { stampNumber = int.Parse(items[0]), stampTeam = items[1], isSpecial = items[2].Equals("TRUE") };
                                     StampsList stamplist = new StampsList() { stampQuantity = int.Parse(items[3]), isAvailable = items[4].Equals("TRUE") };
-                                    secondDictionary.Add(numberkey, stampList.isAvailable.Equals("TRUE"));
+                                    secondDictionary.Add(numberkey, stampList.isAvailable.Equals("TRUE\r"));
 
                                 }
                                 catch (Exception) {
